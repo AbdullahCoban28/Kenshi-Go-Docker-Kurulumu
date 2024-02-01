@@ -113,9 +113,9 @@ chmod +x unchained.sh
 ./unchained.sh worker restart
 ```
 
-> [!TIP]
+#  Logları kontrol İçin
 
-> ./unchained.sh worker logs -f  kodu ile loglarınızı kontrol edebilirsiniz.
+ ./unchained.sh worker logs -f 
 
 
 
