@@ -111,11 +111,10 @@ chmod +x unchained.sh
 # Eğer node'unuza restart atma ihtiyacı duyarsanız bu komutu kullanabilirsiniz.
 
 ./unchained.sh worker restart
-```
 
 # Logları kontrol İçin
 
  ./unchained.sh worker logs -f 
 
-```
+
 
