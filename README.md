@@ -108,7 +108,7 @@ chmod +x unchained.sh
 # Artık çalıştırmaya hazırız! Aşağıdaki kod ile çalıştıralım.
 ./unchained.sh worker up -d
 
-#Eğer node'unuza restart atma ihtiyacı duyarsanız bu komutu kullanabilirsiniz.
+# Eğer node'unuza restart atma ihtiyacı duyarsanız bu komutu kullanabilirsiniz.
 
 ./unchained.sh worker restart
 ```
