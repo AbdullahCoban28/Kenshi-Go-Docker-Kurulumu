@@ -64,28 +64,42 @@ Output
 
 ```
 # wget ile dosyamızı indirelim
-wget https://github.com/KenshiTech/unchained/releases/download/go/unchained-go-docker.zip
+wget https://github.com/KenshiTech/unchained/releases/download/v0.11.0-alpha.5/unchained-v0.11.0-alpha.5-docker.zip
 
 # İndirmiş olduğumuz dosyamızı unzipleyelim
-unzip  unchained-go-docker.zip
+unzip  unchained-v0.11.0-alpha.5-docker.zip
 
 # Unzip ile ortaya çıkan dosyamızın içine girelim
-cd unchained-go-docker
+cd unchained-v0.11.0-alpha.5-docker
 
 # cp komutu ile dosya içerisinde bulunan conf.worker.yaml.template isimli dosyamızı conf.worker.yaml olarak kopyalayalım.
 cp conf.worker.yaml.template conf.worker.yaml
 
 # Oluşturduğumuz dosyanın içerisine girelim
-cp conf.worker.yaml.template conf.worker.yaml
+cp conf.worker.yaml
 
-# Aşağıdaki komut ile kopyaladığımız dosya içeriğini düzenleyelim
+# Aşağıdaki komut ile kopyaladığımız dosya içeriğini düzenleyelim. 
 nano conf.worker.yaml
-```
 
-> [!WARNING]
-> Nano ile içerisine girdiğimizde değiştirmemiz gereken ilk kısım "name" kısmıdır. Typescript çalıştırıyorsanız lütfen aynı ismi girin ve dosyanın sonuna typescriptinizde bulunan secretKey ve publicKey'i mutlaka ekleyin.<br><br>
-> Eğer Kenshi'yi ilk defa çalıştırıyorsanız (Typescript dahi hiç çalıştırmamışsanız) sadece name kısmını düzenleyip çıkabilirsiniz.<br><br>
-> Gerekli alanları düzenledikten sonra sırasıyla CTRL + X, Y ve Enter diyerek editörden çıkabilirsiniz.
+# ADINIZ YAZAN KISMI DEĞİŞTİRİN
+● broker: wss://shinobi.brokers.kenshi.io
+  log: info
+  name: ADINIZ
+  rpc:
+    ethereum: https://eth.llamarpc.com
+
+# Sonra sırasıyla CTRL + X, Y ve Enter diyerek editörden çıkabilirsiniz.
+
+
+#Ardından aşağıdaki kodu girin,
+nano secret.conf.yaml
+
+#Açılan pencereye daha önceden yedek almış olduğunuz publickey ve secretkey inizi xxx yazan yerleri silerek giriniz.
+
+publickey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+secretkey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Sonra sırasıyla CTRL + X, Y ve Enter diyerek editörden çıkabilirsiniz.
 
 ```
 # Yukarıdaki işlemleri hallettiysek şimdi dosyamıza çalıştırma izni verelim.
@@ -93,6 +107,9 @@ chmod +x unchained.sh
 
 # Artık çalıştırmaya hazırız! Aşağıdaki kod ile çalıştıralım.
 ./unchained.sh worker up -d
+
+#Eğer node'unuza restart atma ihtiyacı duyarsanız bu komutu kullanabilirsiniz.
+./unchained.sh worker restart
 ```
 
 > [!TIP]
