@@ -112,9 +112,13 @@ chmod +x unchained.sh
 
 ./unchained.sh worker restart
 
-# Logları kontrol İçin
+# Logları Kontrol Etmek İçin
 
  ./unchained.sh worker logs -f 
 
+# Loglardan Çıkış İçin
+Ctrl + C
+
+# Takip Ederseniz Sevinirim :) Düzenleme için @Dtractus hocama teşekkür ederim
 
 
