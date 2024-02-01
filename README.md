@@ -1,7 +1,7 @@
 # Kenshi-Go-Docker-Kurulumu
 
 > [!NOTE]
-> Kenshi Artık GOLang ile çalışacağını belirtti. Bu Sebeple Eski Node'unuzdan Public ve Private Keylerinizi Biryere Kaydedip Silebilirsiniz.
+> Kenshi Artık GOLang ile çalışacağını belirtti. Bu Sebeple Eski Node'unuzdan Public ve Private Keylerinizi Biryere Kaydedip Silebilirsiniz. Tek komutla silme yok malesef, tek tek dosyaları bulup silin.
 
 <br>
 
