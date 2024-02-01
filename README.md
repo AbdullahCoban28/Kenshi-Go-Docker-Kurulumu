@@ -113,9 +113,9 @@ chmod +x unchained.sh
 ./unchained.sh worker restart
 ```
 
-#  Logları kontrol İçin
+# Logları kontrol İçin
 
  ./unchained.sh worker logs -f 
 
-
+```
 
