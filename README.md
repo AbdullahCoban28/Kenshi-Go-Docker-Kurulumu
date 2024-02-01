@@ -1,9 +1,8 @@
 # Kenshi-Go-Docker-Kurulumu
 
 > [!NOTE]
-> Kenshi yakın zamanda typescript yerine GOLang ile çalışacağını dile getirdi ve testlerine başladı. Test etmek isteyenler için oluşturulmuş bir repodur.
-<br>
-Kenshi Go versiyonunu Docker ile test etmek için hazırsanız başlayalım.
+> Kenshi Artık GOLang ile çalışacağını belirtti. Bu Sebeple Eski Node'unuzdan Public ve Private Keylerinizi Biryere Kaydedip Silebilirsiniz.
+
 <br>
 
 ## Sunucu Güncelleme ve Docker Kurulumu
