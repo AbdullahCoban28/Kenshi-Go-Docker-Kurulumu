@@ -1,9 +1,8 @@
 # Kenshi-Go-Docker-Kurulumu
 
 > [!NOTE]
-> Kenshi yakın zamanda typescript yerine GOLang ile çalışacağını dile getirdi ve testlerine başladı. Test etmek isteyenler için oluşturulmuş bir repodur.
-<br>
-Kenshi Go versiyonunu Docker ile test etmek için hazırsanız başlayalım.
+> Kenshi Artık GOLang ile çalışacağını belirtti. Bu Sebeple Eski Node'unuzdan Public ve Private Keylerinizi Biryere Kaydedip Silebilirsiniz. Tek komutla silme yok malesef, tek tek dosyaları bulup silin.
+
 <br>
 
 ## Sunucu Güncelleme ve Docker Kurulumu
@@ -64,28 +63,42 @@ Output
 
 ```
 # wget ile dosyamızı indirelim
-wget https://github.com/KenshiTech/unchained/releases/download/go/unchained-go-docker.zip
+wget https://github.com/KenshiTech/unchained/releases/download/v0.11.0-alpha.5/unchained-v0.11.0-alpha.5-docker.zip
 
 # İndirmiş olduğumuz dosyamızı unzipleyelim
-unzip  unchained-go-docker.zip
+unzip  unchained-v0.11.0-alpha.5-docker.zip
 
 # Unzip ile ortaya çıkan dosyamızın içine girelim
-cd unchained-go-docker
+cd unchained-v0.11.0-alpha.5-docker
 
 # cp komutu ile dosya içerisinde bulunan conf.worker.yaml.template isimli dosyamızı conf.worker.yaml olarak kopyalayalım.
 cp conf.worker.yaml.template conf.worker.yaml
 
 # Oluşturduğumuz dosyanın içerisine girelim
-cp conf.worker.yaml.template conf.worker.yaml
+cp conf.worker.yaml
 
-# Aşağıdaki komut ile kopyaladığımız dosya içeriğini düzenleyelim
+# Aşağıdaki komut ile kopyaladığımız dosya içeriğini düzenleyelim. 
 nano conf.worker.yaml
-```
 
-> [!WARNING]
-> Nano ile içerisine girdiğimizde değiştirmemiz gereken ilk kısım "name" kısmıdır. Typescript çalıştırıyorsanız lütfen aynı ismi girin ve dosyanın sonuna typescriptinizde bulunan secretKey ve publicKey'i mutlaka ekleyin.<br><br>
-> Eğer Kenshi'yi ilk defa çalıştırıyorsanız (Typescript dahi hiç çalıştırmamışsanız) sadece name kısmını düzenleyip çıkabilirsiniz.<br><br>
-> Gerekli alanları düzenledikten sonra sırasıyla CTRL + X, Y ve Enter diyerek editörden çıkabilirsiniz.
+# ADINIZ YAZAN KISMI DEĞİŞTİRİN
+● broker: wss://shinobi.brokers.kenshi.io
+  log: info
+  name: ADINIZ
+  rpc:
+    ethereum: https://eth.llamarpc.com
+
+# Sonra sırasıyla CTRL + X, Y ve Enter diyerek editörden çıkabilirsiniz.
+
+
+#Ardından aşağıdaki kodu girin,
+nano secret.conf.yaml
+
+#Açılan pencereye daha önceden yedek almış olduğunuz publickey ve secretkey inizi xxx yazan yerleri silerek giriniz.
+
+publickey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+secretkey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Sonra sırasıyla CTRL + X, Y ve Enter diyerek editörden çıkabilirsiniz.
 
 ```
 # Yukarıdaki işlemleri hallettiysek şimdi dosyamıza çalıştırma izni verelim.
@@ -93,10 +106,24 @@ chmod +x unchained.sh
 
 # Artık çalıştırmaya hazırız! Aşağıdaki kod ile çalıştıralım.
 ./unchained.sh worker up -d
-```
 
-> [!TIP]
-> ./unchained.sh worker logs -f  kodu ile loglarınızı kontrol edebilirsiniz.<br><br>
-> Herhangi bir sorun yoksa ekran görüntünüz aşağıdaki gibi olmalıdır.<br><br>
+# Eğer node'unuza restart atma ihtiyacı duyarsanız bu komutu kullanabilirsiniz.
 
-![Screenshot_6](https://github.com/Dtractus/Kenshi-Go-Docker-Kurulumu/assets/55835876/9060921b-9e56-401e-bba1-9c0ba4b290fa)
+./unchained.sh worker restart
+
+# Logları Kontrol Etmek İçin
+
+ ./unchained.sh worker logs -f 
+
+# Loglardan Çıkış İçin
+Ctrl + C
+
+> [!WARNING]
+> # PUAN ARTIŞI OLMUYORSA MUHTEMELEN GO SİZE BAŞKA BİR PUBLİC KEY ATAMIŞTIR, ONUN İÇİN AŞAĞIDAKİ GÖRSELE BAKARAK DOĞRU DİZİNİ BULUN VE GÖRSELDEKİ 2 DOSYAYI KENDİNİZE GÖRE UYARLAYIN, SONRASINDA YUKARIDA BELİRTTİĞİM RESTART KOMUTU İLE RESTART ATIN.
+
+![image](https://github.com/geocmsk/Kenshi-Go-Docker-Kurulumu/assets/90604931/26a241b3-e21e-412c-8bf2-b6fc32495e61)
+
+
+# Takip Ederseniz Sevinirim :) Düzenleme için @Dtractus hocama teşekkür ederim
+
+
