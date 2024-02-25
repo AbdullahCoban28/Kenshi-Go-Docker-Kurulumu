@@ -63,13 +63,13 @@ Output
 
 ```
 # wget ile dosyamızı indirelim
-wget https://github.com/KenshiTech/unchained/releases/download/v0.11.0-alpha.5/unchained-v0.11.0-alpha.5-docker.zip
+wget [https://github.com/KenshiTech/unchained/releases/download/v0.11.0-alpha.5/unchained-v0.11.0-alpha.5-docker.zip](https://github.com/KenshiTech/unchained/releases/download/v0.11.9/unchained-v0.11.9-docker.zip)
 
 # İndirmiş olduğumuz dosyamızı unzipleyelim
-unzip  unchained-v0.11.0-alpha.5-docker.zip
+unzip  unchained-v0.11.9-docker.zip
 
 # Unzip ile ortaya çıkan dosyamızın içine girelim
-cd unchained-v0.11.0-alpha.5-docker
+cd unchained-v0.11.9-docker
 
 # cp komutu ile dosya içerisinde bulunan conf.worker.yaml.template isimli dosyamızı conf.worker.yaml olarak kopyalayalım.
 cp conf.worker.yaml.template conf.worker.yaml
@@ -81,11 +81,49 @@ cp conf.worker.yaml
 nano conf.worker.yaml
 
 # ADINIZ YAZAN KISMI DEĞİŞTİRİN
-● broker: wss://shinobi.brokers.kenshi.io
-  log: info
-  name: ADINIZ
-  rpc:
-    ethereum: https://eth.llamarpc.com
+● log: info
+name: ADINIZ
+
+broker:
+  uri: wss://shinobi.brokers.kenshi.io
+
+rpc:
+  ethereum: 
+    - https://ethereum.publicnode.com
+    - https://eth.llamarpc.com
+    - wss://ethereum.publicnode.com
+    - https://eth.rpc.blxrbdn.com
+
+plugins:
+  uniswap:
+    schedule:
+      ethereum: 5000
+
+    tokens:
+      - name: ethereum
+        chain: ethereum
+        pair: "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+        delta: 12
+        invert: true
+        unit: USDT
+        send: true
+
+      - name: arbitrum
+        chain: ethereum
+        pair: "0x59354356Ec5d56306791873f567d61EBf11dfbD5"
+        delta: 0
+        invert: false
+        unit: ETH
+        send: true
+
+      - name: bitcoin
+        chain: ethereum
+        pair: "0x9db9e0e53058c89e5b94e29621a205198648425b"
+        delta: 2
+        invert: false
+        unit: USDT
+        send: true
+
 
 # Sonra sırasıyla CTRL + X, Y ve Enter diyerek editörden çıkabilirsiniz.
 
